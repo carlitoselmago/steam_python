@@ -1,12 +1,32 @@
-from flask import Flask, redirect, url_for, request
+from flask import *
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+	HTML='<h1>Hola</h1>, aquesta és la meva web'
+	return HTML
 
-@app.route("/app/<int:appid>")
-def app_detail(appid):
-    # La variable appid és un int
-    html_response = "<h1>La meva App ID: "+str(appid)+"</h1>"
-    return html_response
+@app.route('/about')
+def about():
+	HTML ='Aixó és la pàgina about'
+	return HTML
+
+if __name__ == '__main__':
+	app.run(debug = True)
+
+
+
+
+
+
+
+
+
+
+"""
+
+
+
 
 
 @app.route('/',methods = ['GET'])
@@ -34,7 +54,12 @@ def home():
 
 		return HTML
 
-if __name__ == '__main__':
-	app.run(debug = True)
+@app.route("/app/<int:appid>")
+def app_detail(appid):
+    # La variable appid és un int
+    html_response = "<h1>La meva App ID: "+str(appid)+"</h1>"
+    return html_response
 
 
+
+"""
