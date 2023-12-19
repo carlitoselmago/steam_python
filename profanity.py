@@ -4,13 +4,13 @@ from transformers import pipeline
 #https://huggingface.co/blog/sentiment-analysis-python
 
 # Inicialitza la pipeline d'anàlisi de sentiments
-sentiment_analyzer = pipeline("sentiment-analysis")
+profanity = pipeline("text-classification", model="Rishi-19/Profanity_Check_CustomData")
 
 # Text d'exemple
 text = "Piece of crap game"
 
 # Realitza l'anàlisi de sentiments
-result = sentiment_analyzer(text)
+result = profanity(text)
 
 # Imprimeix el resultat
 print(result)

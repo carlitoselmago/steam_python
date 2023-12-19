@@ -1,0 +1,20 @@
+body{
+    background-color: red;
+}
+img{
+    border-radius: 20px;
+    max-width: 300px;
+    height: auto;
+}
+a{
+    color:black;
+    display: block;
+    border-radius: 12px;
+    border:solid 1px;
+    padding: 5px 15px;
+    text-decoration: none;
+}
+a:hover{
+    background-color: black;
+    color:white;
+}
