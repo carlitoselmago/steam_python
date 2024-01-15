@@ -1,11 +1,12 @@
 from flask import Flask, redirect, url_for, request
 import pymysql.cursors
+from jinja2 import Environment, FileSystemLoader
+
+environment = Environment(loader=FileSystemLoader("templates/"))
 
 app = Flask(__name__)
 
 HEAD='<link rel= "stylesheet" type= "text/css" href= "static/main.css">'
-
-
 
 @app.route('/',methods = ['GET'])
 def home():
@@ -34,10 +35,12 @@ def home():
 
 @app.route("/app/<int:appid>")
 def app_detail(appid):
+	print(appid)
     # La variable appid és un int
-    html_response = "<h1>La meva App ID: "+str(appid)+"</h1>"
-    return html_response
-
+	#html_response = "<h1>La meva App ID: "+str(appid)+"</h1>"
+	#return html_response
+	template = environment.get_template("app.html")
+	return template.render(appid=appid,anycreacio=1982)
 
 if __name__ == '__main__':
 	app.run(debug = True)
