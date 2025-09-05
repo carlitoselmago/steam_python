@@ -1,3 +1,11 @@
 <h1>La meva App ID: {{ appid }} va ser llançat al {{ anycreacio }}</h1>
 
 <p>Aquí aniria la meva descripció del meu joc</p>
+
+{% for app in apps 
+    {% if app.year < 200 %}
+    <div class="destacado">VINTAGE!</div>
+    {% endif %}
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/{{ app.appid }})/header.jpg" style="border-radius:12px">
+    <h3 class="titulo">{{ app.name }}</h3>
+{% endfor %}
